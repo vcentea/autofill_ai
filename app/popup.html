@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenAI Assistant</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loader" class="loader" style="display: none;">
+            <div class="spinner"></div>
+            <div class="loader-text">Filling form...</div>
+        </div>
+        <h2>Form Autofill</h2>
+        <div class="api-selection">
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="apiType" value="openai" checked> OpenAI
+                </label>
+                <label>
+                    <input type="radio" name="apiType" value="local"> Local LM Studio
+                </label>
+            </div>
+            <div id="openaiSection">
+                <div class="input-group">
+                    <input type="password" id="apiKey" placeholder="Enter your OpenAI API key">
+                    <select id="modelSelect">
+                        <option value="gpt-4o-mini">GPT-4o-mini</option>
+                        <option value="gpt-4o">GPT-4o</option>
+                    </select>
+                </div>
+                <button id="saveKey">Save API Key</button>
+            </div>
+            <div id="localSection" style="display: none;">
+                <input type="text" id="serverUrl" value="http://localhost:1234" placeholder="Server URL">
+            </div>
+        </div>
+        <div class="file-section">
+            <select id="fileSelect">
+                <option value="">Select a file with form data...</option>
+            </select>
+            <div class="file-buttons">
+                <input type="file" id="fileInput" accept=".json,.txt" style="display: none;">
+                <button id="addFile">Add File</button>
+                <button id="deleteFile">Delete File</button>
+            </div>
+        </div>
+        <div class="scan-section">
+            <div class="button-group">
+                <button id="testFill">Fill Form</button>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 
